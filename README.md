@@ -1,53 +1,20 @@
-import pygame # import the pygame module
-from pygame import mixer  # import the mixer submodule from pygame
-from tkinter import *  # import the tkinter module for GUI programming
-import os   # import the os module for file system operations
+Music Player in Python
+This program is a simple music player that uses the Pygame and Tkinter libraries to play and control music files. It allows the user to select songs from a list and perform basic operations such as playing, pausing, stopping, and resuming.
 
-def playsong():  # define a function for playing a song
-  currentsong=playlist.get(ACTIVE)  # get the selected song from the playlist
-  print(currentsong)  # print the name of the song in the console
-  mixer.music.load(currentsong)  # load the selected song into the mixer
-  songstatus.set("Playing")  # update the song status to "Playing"
-  mixer.music.play()  # play the loaded song
+Requirements
+Python 3.x,Pygame,Tkinter,mixer.
 
-def pausesong():  # define a function for pausing a song
-  songstatus.set("Paused")  # update the song status to "Paused"
-  mixer.music.pause()  # pause the currently playing song
+Usage
+Install Python 3.x and the Pygame and mixer,Tkinter libraries. Download or clone this repository to your local machine. Open the terminal and navigate to the directory where the repository is located. Run the following command to start the music player: python musicplayer_2.py Select a song from the list by clicking on it. Use the buttons to control the playback of the selected song.
 
-def stopsong():   # Defining the function for stopping a song
-  songstatus.set("Stopped")  # Setting the status of the song as "Stopped"
-  mixer.music.stop()  # Stopping the current song
+Functions
+playsong(): Loads and plays the selected song. pausesong(): Pauses the currently playing song. stopsong(): Stops the currently playing song. resumesong(): Resumes the playback of the paused song.
 
-def resumesong():  # Defining the function for resuming a song
-  songstatus.set("Resuming")  # Setting the status of the song as "Resuming"
-  mixer.music.unpause()  # Resuming the current song
+GUI Buttons
+Play: Starts playing the selected song. Pause: Pauses the playback of the selected song. Stop: Stops the playback of the selected song. Resume: Resumes the playback of the paused song.
 
-root=Tk()  # Creating the tkinter window
-root.title('Codeclause Music player')  # Setting the title of the window
-mixer.init()  # Initializing the mixer module
-songstatus=StringVar()  # Creating a string variable for the status of the song
-songstatus.set("choosing")  # Setting the initial status of the song as "choosing"
-playlist=Listbox(root,selectmode=SINGLE,bg="black",fg="white",font=('optima',15),width=32,height=7)  # Creating a listbox for the playlist
-playlist.grid(columnspan=20)  # Positioning the listbox in the tkinter window
-os.chdir(r'D:\music')  # Changing the current working directory to the directory containing the music files
-songs=os.listdir()  # Getting the list of music files in the directory
-for s in songs:
-   playlist.insert(END,s)  # Adding each music file to the playlist
+Algorithm
+This code is a simple music player that allows the user to select a song from a playlist and play, pause, resume, or stop it using buttons. Here's the algorithm for this code: step1:Import necessary libraries: pygame, tkinter, and os. step2:Define the functions for playing, pausing, stopping, and resuming the selected song. Each function uses the mixer module from pygame to control the music playback. step3:Create a tkinter window and initialize the mixer. step4:Create a Listbox widget to display the playlist of songs. Set the selectmode to SINGLE so that only one song can be selected at a time. Set the background color to black, foreground color to white, and font to 'optima' with a size of 15. Set the width and height of the widget to 32 and 7, respectively. Grid the widget to the root window with columnspan=20. step6:Change the current directory to the directory containing the music files. step7:Get a list of all the songs in the directory using the listdir function from os module. step8:Insert each song in the playlist widget using a for loop. step9:Create buttons for playing, pausing, stopping, and resuming the music playback. Configure each button with a font of 'candara' and a size of 20. Set the background and foreground colors and padding for each button accordingly. Grid each button to the root window with appropriate row and column numbers. step10:Start the mainloop to run the tkinter window. That's it! The user can now select a song from the playlist and control the music playback using the buttons.
 
-playbtn=Button(root,text="Play",command=playsong)   # Creates a button named "Play" with a command to play the song
-playbtn.config(font=('candara',20),bg="white",fg="green",padx=2,pady=0)   # Configures the button's font, background color, and text color
-playbtn.grid(row=1,column=0)   # Displays the button at row 1 and column 0 in the GUI
-
-pausebtn=Button(root,text="Pause",command=pausesong)   # Creates a button named "Pause" with a command to pause the song
-pausebtn.config(font=('candara',20),bg="white",fg="blue",padx=2,pady=0)   # Configures the button's font, background color, and text color
-pausebtn.grid(row=1,column=1)   # Displays the button at row 1 and column 1 in the GUI
-
-stopbtn=Button(root,text="Stop",command=stopsong)   # Creates a button named "Stop" with a command to stop the song
-stopbtn.config(font=('candara',20),bg="white",fg="red",padx=2,pady=0)   # Configures the button's font, background color, and text color
-stopbtn.grid(row=1,column=2)   # Displays the button at row 1 and column 2 in the GUI
-
-Resumebtn=Button(root,text="Resume",command=resumesong)   # Creates a button named "Resume" with a command to resume the song
-Resumebtn.config(font=('candara',20),bg="white",fg="orange",padx=2,pady=0)   # Configures the button's font, background color, and text color
-Resumebtn.grid(row=1,column=3)   # Displays the button at row 1 and column 3 in the GUI
-
-mainloop()   # Starts the event loop of the GUI, allowing user interaction with the buttons and listbox.
+Credits:
+This Music Player project is developed by VENKATA PRANEETH YARRAPATHRUNI
